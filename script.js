@@ -4,14 +4,17 @@ var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 
 // Assignment code here
-var specialChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+var specialChar = ["!", "#", "$", "%", "&", "'", "(",")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[","]", "^", "_", "`", "{","|","}", "~"];
 var lowerCase = ["a", "b","c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o","p", "q", "r","s", "t", "u", "v", "w", "x", "y", "z"];
 var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 var allArray = [specialChar, lowerCase, numeric, upperCase];
 
+// start with a function that will generate a password
+
 function generatePassword() {
+  // describe what every possible variable can be and how it will be prompted
   var possibleCharacter = [];
   var userLength = prompt("Please select how many characters? \n 8 Minimum, 128 Maximum");
   var userLower = confirm("Would you like to use lower case letters? \n Ok for Yes, Cancel for No");
@@ -19,7 +22,7 @@ function generatePassword() {
   var userCapital = confirm("How many capital letters? \n Ok for Yes, Cancel for No");
   var userNumbers = confirm("Would you like to use numbers? \n Ok for yes, Cancel for No");
   var password = [];
-
+// create if statement that will limit characters to within 8 and 128 
   if ( userLength < 8 || userLength > 128) {
    // alert ("Please select a number between 8 and 128 \n for Password Length");
     prompt.userLength;
@@ -38,12 +41,12 @@ function generatePassword() {
      alert("Please select one character for your password!"); 
      console.log(possibleCharacter);
      for (i=0; i<userLength; i++){
-     
+     // make sure to generate a random passowrd
       password = password.concat( getRandom(possibleCharacter));
     }
     return password
   }
-    function getRandom(arr) {
+    function getRandom(arr) { //this function makes it possible to create a random text
       var randIndex = Math.floor(Math.random() * arr.length);
       var randElement = arr[randIndex];
       return randElement
